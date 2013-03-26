@@ -36,6 +36,7 @@ public abstract class AbstractEntityBuilder<E extends AbstractEntity, B extends 
     /**
      * Creates a new builder working on an empty entity.
      */
+    @SuppressWarnings("unchecked")
     public AbstractEntityBuilder() {
         try {
             entity = ((Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]).newInstance();
@@ -74,6 +75,7 @@ public abstract class AbstractEntityBuilder<E extends AbstractEntity, B extends 
     /**
      * Wrapper method for {@code this} cast to the {@code B} parameter type.
      */
+    @SuppressWarnings("unchecked")
     protected B myself() {
         return (B) this;
     }
